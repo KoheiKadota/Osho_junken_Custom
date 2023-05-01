@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/sample.css" />
+    <title>ようこそ餃子の王将へ</title>
+  </head>
+
+  <!-- /* ページ1の画面 = 動画とご飯どこ行く？-->
+  <body>
+    <div id="page1">
+      <p class="title_gohan">餃子の王将へようこそ</p>
+
+      <body background="img/fried_rice.mp4"></body>
+      <video src="img/fried_rice.mp4" autoplay muted loop id="bg-video"></video>
+    </div>
+
+    <!-- /*ゲームボタン -->
+
+    <div id="btn">
+      <div class="btn_CSS">メニュー</div>
+    </div>
+
+    <!-- /*ページ2の画面始まり = ゲーム -->
+    <div id="page2" style="display: none">
+      <header>
+        <div class="title_logo"><img src="img/osho_logo_mv.png" alt="" /></div>
+        <h1 class="title fadeUp">メニューをお選び下さい</h1>
+      </header>
+      <ul>
+        <li id="gyoza">餃子</li>
+        <li id="chahan">炒飯</li>
+        <li id="ramen">餃子の王将ラーメン</li>
+      </ul>
+
+      <div class="img_box">
+        <div class="gyoza delay-time01 fadeUp">
+          <img src="img/gyoza.jpg" alt="" />
+        </div>
+
+        <div class="chahan delay-time02 fadeUp">
+          <img src="img/chahan.jpg" alt="" />
+        </div>
+
+        <div class="ramen delay-time04 fadeUp">
+          <img src="img/ohsho_ramen.jpg" alt="" />
+        </div>
+      </div>
+
+      <main>
+        <div id="com_hand"></div>
+        <div id="result">日本を美味しく</div>
+      </main>
+    </div>
+
+    <!-- /* ページ2画面の終わり-->
+
+    <div id="page3" style="display: none">
+      <div class="ofukuro_gohan">
+        <img src="img/osho_logo_mv.png" alt="" />
+        <p>料理は愛情</p>
+      </div>
+    </div>
+
+    <!-- /* ボタン(btn)をクリックするとpage1が消える-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $("#btn").click(function () {
+        $("#page1").hide();
+        $("#page2").show();
+        $("#btn").hide();
+      });
+    </script>
+
+    <!-- 乱数（じゃんけんと同じ確率） -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      //餃子を押した時
+      $("#gyoza").on("click", function () {
+        const min = 0;
+        const max = 2;
+        const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        // 乱数の指示を出す
+        console.log(randomNumber);
+
+        if (randomNumber === 0) {
+          $("#com_hand").text();
+          $("#result").text("現在30分待ちです。");
+        }
+
+        if (randomNumber === 1) {
+          $("#com_hand").text();
+          $("#result").img("ご注文承りました👍👍");
+        }
+        if (randomNumber === 2) {
+          $("#com_hand").text();
+          $("#result").text("申し訳ございません。品切れです。");
+        }
+      });
+
+      // チャーハンを押した時
+      $("#chahan").on("click", function () {
+        const min = 0;
+        const max = 2;
+        const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        // 乱数の指示を出す
+        console.log(randomNumber);
+
+        if (randomNumber === 0) {
+          $("#com_hand").text("");
+          $("#result").text("申し訳ございません。品切れです。");
+        }
+        if (randomNumber === 1) {
+          $("#com_hand").text("");
+          $("#result").text("現在30分待ちです。");
+        }
+        if (randomNumber === 2) {
+          $("#com_hand").text("");
+          $("#result").text("ご注文承りました👍👍");
+        }
+      });
+
+      // ラーメンを押した時
+      $("#ramen").on("click", function () {
+        const min = 0;
+        const max = 2;
+        const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        // 乱数の指示を出す
+        console.log(randomNumber);
+
+        if (randomNumber === 0) {
+          $("#com_hand").text("");
+          $("#result").text("注文承りました👍👍");
+        }
+        if (randomNumber === 1) {
+          $("#com_hand").text("");
+          $("#result").text("申し訳ございません。品切れです。");
+        }
+        if (randomNumber === 2) {
+          $("#com_hand").text("");
+          $("#result").text("現在30分待ちです。");
+        }
+      });
+
+      // 一定数(9回)のクリックでコンピューターに飽きられる
+
+      let clickCount = 0;
+
+      $(document).on("click", function () {
+        clickCount++;
+        if (clickCount === 9) {
+          $("#result").text("またのお越しをお待ちしております。");
+        } else if (clickCount === 10) {
+          $("#page2").hide();
+          $("#page3").show();
+        }
+      });
+    </script>
+  </body>
+</html>

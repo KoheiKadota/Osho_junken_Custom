@@ -1,0 +1,143 @@
+.title_logo {
+  text-align: left;
+}
+
+.title_gohan {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2.4em;
+  font-weight: bold;
+  text-shadow: 2px 2px 2px rgb(41, 190, 4);
+}
+
+#page2 {
+  background-color: cornsilk;
+  height: 90vh;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 36px;
+}
+header {
+  text-align: center;
+  font-size: 30px;
+}
+
+main {
+  font-size: 64px;
+}
+
+footer {
+  background-color: #fff;
+  text-align: center;
+  color: #d60823;
+}
+
+ul {
+  padding: 0;
+  border-top: 1px solid #ffffff;
+  display: table; /* 定義 */
+  table-layout: fixed;
+  width: 100%;
+}
+li {
+  text-align: center;
+  list-style-type: none;
+  border: 5px solid #ff0303ef;
+  background-color: rgba(248, 232, 2, 0.932);
+  display: table-cell; /* 定義 */
+  cursor: pointer;
+  align-items: flex-end;
+}
+li:hover {
+  background: #5ac403fb;
+  color: #ffffff;
+}
+
+.img_box {
+  display: flex;
+  justify-content: space-around;
+}
+
+.title {
+  color: orange;
+  margin-bottom: 120px;
+}
+
+.fadeUp {
+  animation-name: fadeUpAnime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* アニメーションスタートの遅延時間を決めるCSS*/
+
+.delay-time01 {
+  animation-delay: 0.2s;
+}
+
+.delay-time02 {
+  animation-delay: 0.4s;
+}
+
+.delay-time04 {
+  animation-delay: 0.8s;
+}
+
+背景を動画へ #bg-video {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: -1;
+}
+
+.btn_CSS {
+  position: absolute;
+  top: 60%;
+  left: 40%;
+  display: inline-block;
+  cursor: pointer;
+  padding: 12px 80px;
+  background-color: #d60823;
+  box-shadow: 0px 5px #f3e416;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 32px;
+}
+
+.ofukuro_gohan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+  font-size: 50px;
+}
+
+#result {
+  margin-top: 80px;
+}
